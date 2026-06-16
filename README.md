@@ -8,6 +8,7 @@
 ai-course-landing-business/
   README.md
   docs/
+    00-project-todo.md
     01-complete-plan.md
     02-client-materials.md
     03-delivery-checklist.md
