@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
+const signupFormUrl = "https://rcn0mr1gzi35.feishu.cn/share/base/form/shrcnVFauY5ygNOkpJgnbccikA5";
+
 const painPoints = [
   "AI 工具很多，但不知道怎么用到真实工作里",
   "收藏了很多教程，却没有形成自己的工作流",
@@ -77,6 +79,11 @@ const faqs = [
 ];
 
 function App() {
+  const handleSignupSubmit = (event) => {
+    event.preventDefault();
+    window.open(signupFormUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <main>
       <section className="hero">
@@ -241,7 +248,7 @@ function App() {
           <p className="eyebrow">立即报名</p>
           <h2>留下联系方式，领取试听课和本期课表</h2>
           <p className="sectionIntro">
-            Demo 里表单不会真正提交。真实客户项目可以替换为飞书表单、金数据或腾讯问卷，也可以把按钮改成企业微信二维码。
+            页面按钮已接入飞书表单。点击提交后会打开真实报名表，报名数据进入飞书多维表格，方便后续跟进。
           </p>
           <div className="offerBox">
             <ShieldCheck size={24} />
@@ -260,12 +267,12 @@ function App() {
           </div>
         </div>
 
-        <form className="signup" id="signup">
+        <form className="signup" id="signup" onSubmit={handleSignupSubmit}>
           <div className="formTitle">
             <Clock3 size={22} />
             <div>
               <h3>预约试听</h3>
-              <p>提交后 24 小时内发送课程安排</p>
+              <p>点击按钮后进入飞书表单填写</p>
             </div>
           </div>
           <label>
@@ -284,8 +291,13 @@ function App() {
             最想解决的问题
             <textarea placeholder="简单写一下你希望用 AI 提升哪类工作效率" />
           </label>
-          <button type="button">提交预约，领取试听课</button>
-          <p className="formHint">Demo 中按钮不提交数据，实际项目可替换为飞书表单、金数据或腾讯问卷。</p>
+          <button type="submit">打开飞书表单，提交预约</button>
+          <p className="formHint">
+            为了保证数据稳定收集，当前版本会跳转到飞书表单完成提交。
+            <a href={signupFormUrl} target="_blank" rel="noreferrer">
+              直接打开表单
+            </a>
+          </p>
         </form>
       </section>
 

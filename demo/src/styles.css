@@ -503,6 +503,15 @@ summary {
   font-size: 0.88rem;
 }
 
+.formHint a {
+  display: inline-block;
+  margin-left: 6px;
+  color: #1f7a63;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .wechat {
   display: grid;
   grid-template-columns: 1fr 180px;
