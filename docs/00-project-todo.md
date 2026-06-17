@@ -7,9 +7,10 @@
 - 项目已初始化为 Git 仓库。
 - 远程仓库已关联：`git@github.com:yjy-123456/ai-course-landing-business.git`
 - 当前主分支：`main`
-- 最新已推送提交：`582e804 初始化 AI 课程报名页项目`
+- 最新已推送提交：以 GitHub 仓库 `main` 分支为准。
 - Demo 技术栈：React + Vite + lucide-react
 - 第一版定位：AI 课程/训练营报名页业务工具包
+- 已添加 GitHub Pages 自动部署配置。
 
 ## 已完成
 
@@ -30,6 +31,8 @@
 - [x] 添加 `.gitignore`，忽略 `node_modules/` 和 `dist/`。
 - [x] 创建本地 Git 提交。
 - [x] 关联 GitHub 远程仓库并推送 `main` 分支。
+- [x] 添加 GitHub Pages 部署工作流。
+- [x] 添加 Vite 子路径配置，适配 GitHub Pages 仓库路径。
 
 ## 当前待确认
 
@@ -59,9 +62,12 @@
 
 ### 第 2 步：完成线上部署
 
-- [ ] 选择部署平台：优先 Vercel 或 Cloudflare Pages。
-- [ ] 配置构建命令：`npm run build`。
-- [ ] 配置项目目录：`demo`。
+- [x] 选择部署平台：GitHub Pages。
+- [x] 配置构建命令：`npm run build`。
+- [x] 配置项目目录：`demo`。
+- [x] 配置发布目录：`demo/dist`。
+- [ ] 在 GitHub 仓库设置中启用 Pages，Source 选择 `GitHub Actions`。
+- [ ] 等待 Actions 自动部署完成。
 - [ ] 获得公开访问链接。
 - [ ] 检查线上页面桌面端与手机端显示。
 - [ ] 将线上链接补充到 README 和本 TODO 文档。
@@ -145,11 +151,12 @@
 
 ## 本周优先级
 
-1. 部署 demo，拿到公开访问链接。
-2. 替换真实微信二维码或准备二维码占位说明。
-3. 发布第一条熟人圈动态。
-4. 发出 20 条私信触达。
-5. 建立线索跟进表。
+1. 在 GitHub 仓库设置里启用 GitHub Pages。
+2. 等待 Actions 部署完成，拿到公开访问链接。
+3. 替换真实微信二维码或准备二维码占位说明。
+4. 发布第一条熟人圈动态。
+5. 发出 20 条私信触达。
+6. 建立线索跟进表。
 
 ## 风险与注意事项
 
@@ -161,4 +168,5 @@
 
 ## 更新记录
 
+- 2026-06-17：添加 GitHub Pages 自动部署配置，准备通过 GitHub Actions 发布 demo。
 - 2026-06-16：完成项目初始化、中文文档、课程报名页 demo、依赖安装、构建验证、Git 提交与 GitHub 推送。
