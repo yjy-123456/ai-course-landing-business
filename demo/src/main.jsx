@@ -18,6 +18,7 @@ import {
 import "./styles.css";
 
 const signupFormUrl = "https://rcn0mr1gzi35.feishu.cn/share/base/form/shrcnVFauY5ygNOkpJgnbccikA5";
+const wechatQrUrl = `${import.meta.env.BASE_URL}wechat-qr.jpg`;
 
 const painPoints = [
   "AI 工具很多，但不知道怎么用到真实工作里",
@@ -79,11 +80,6 @@ const faqs = [
 ];
 
 function App() {
-  const handleSignupSubmit = (event) => {
-    event.preventDefault();
-    window.open(signupFormUrl, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <main>
       <section className="hero">
@@ -267,47 +263,49 @@ function App() {
           </div>
         </div>
 
-        <form className="signup" id="signup" onSubmit={handleSignupSubmit}>
+        <aside className="signup signupEntry" id="signup">
           <div className="formTitle">
             <Clock3 size={22} />
             <div>
               <h3>预约试听</h3>
-              <p>点击按钮后进入飞书表单填写</p>
+              <p>进入飞书表单填写，提交后数据会自动进入飞书多维表格。</p>
             </div>
           </div>
-          <label>
-            姓名
-            <input type="text" placeholder="请输入姓名" />
-          </label>
-          <label>
-            微信
-            <input type="text" placeholder="用于发送课程安排" />
-          </label>
-          <label>
-            职业
-            <input type="text" placeholder="例如：运营 / 销售 / 自由职业" />
-          </label>
-          <label>
-            最想解决的问题
-            <textarea placeholder="简单写一下你希望用 AI 提升哪类工作效率" />
-          </label>
-          <button type="submit">打开飞书表单，提交预约</button>
+          <div className="signupSteps" aria-label="报名流程">
+            <div>
+              <span>1</span>
+              <p>填写姓名、微信、职业和学习需求</p>
+            </div>
+            <div>
+              <span>2</span>
+              <p>提交后进入飞书数据表，方便后续联系</p>
+            </div>
+            <div>
+              <span>3</span>
+              <p>24 小时内发送试听课和本期课表</p>
+            </div>
+          </div>
+          <a className="signupButton" href={signupFormUrl} target="_blank" rel="noreferrer">
+            进入飞书表单报名 <ArrowRight size={18} />
+          </a>
           <p className="formHint">
-            为了保证数据稳定收集，当前版本会跳转到飞书表单完成提交。
+            当前版本采用飞书表单收集线索，稳定、可导出，也便于客户自己维护数据。
             <a href={signupFormUrl} target="_blank" rel="noreferrer">
               直接打开表单
             </a>
           </p>
-        </form>
+        </aside>
       </section>
 
       <section className="wechat" id="wechat">
         <div>
           <p className="eyebrow">微信咨询</p>
           <h2>想了解课程安排？添加微信咨询</h2>
-          <p>实际交付时把右侧占位块替换成客户的微信二维码即可。</p>
+          <p>扫码添加微信，适合想先确认课程安排、适合人群和学习方式的同学。</p>
         </div>
-        <div className="qr">微信二维码</div>
+        <div className="qr">
+          <img src={wechatQrUrl} alt="微信二维码" />
+        </div>
       </section>
     </main>
   );
